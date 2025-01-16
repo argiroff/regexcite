@@ -29,3 +29,33 @@ Create the package.
 create_package("~/Documents/github_repos/regexcite")
 ```
 
+Commit changes.  
+
+```{r git, eval = FALSE}
+use_git()
+```
+
+Add `.Rprofile` file to automatically load `devtools` when the session starts. Add a line with `library(devtools)`. Commit those changes using the `git` window.    
+
+Then create a `.R` file under the `R\` directory to hold the script.  
+
+```{r create_r_file_for_strsplit1, eval = FALSE}
+use_r("strsplit1")
+```
+
+Add function to `strsplit1.R`.  
+
+```{r add_function, eval = FALSE}
+strsplit1 <- function(x, split){
+
+  strsplit(x, split = ",")[[1]]
+
+}
+```
+
+Load everything in `R/` directory into session.  
+
+```{r load, eval = FALSE}
+load_all()
+```
+
