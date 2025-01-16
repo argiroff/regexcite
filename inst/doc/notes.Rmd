@@ -95,3 +95,10 @@ Several files change, including NAMESPACE. `export(strsplit1)` is added due to @
 check(".", vignettes = FALSE)
 ```
  
+Then install and load. 
+
+```{r install, eval = FALSE}
+install()
+library(regexcite)
+```
+
