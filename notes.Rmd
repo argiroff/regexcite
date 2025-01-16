@@ -67,7 +67,20 @@ check()
 
 Look at DESCRIPTION file. Fill in missing information. In console, add license using this command (which will update the DESCRIPTION and LICENSE files accordingly).  
 
-```{r license}
+```{r license, eval = FALSE}
 use_mit_license()
 ```
 
+Add documentation using `roxygen2`. Go to `strsplit.R` file and then Code > Insert roxygen skeleton. Fill in the missing values. Then document.   
+
+```{r document, eval = FALSE}
+document()
+```
+
+Preview what the help documentation will look like.  
+
+```{r preview_help, eval = FALSE}
+?strsplit1
+```
+
+Several files change, including NAMESPACE. `export(strsplit1)` is added due to @export line in `roxygen2` comment.  
