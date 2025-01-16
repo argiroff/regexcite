@@ -9,6 +9,12 @@ date: "2025-01-15"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+# Resources  
+
+Pat Schloss [Code Club Episode](https://www.youtube.com/watch?v=XjolVT16YNw&t=220s)  
+
+[R Packages](https://r-pkgs.org), Chs. 1 and 2  
+
 # Setup  
 
 Load `devtools`.  
@@ -83,4 +89,9 @@ Preview what the help documentation will look like.
 ?strsplit1
 ```
 
-Several files change, including NAMESPACE. `export(strsplit1)` is added due to @export line in `roxygen2` comment.  
+Several files change, including NAMESPACE. `export(strsplit1)` is added due to @export line in `roxygen2` comment. Run another check excluding vignettes so the `inst/doc/` directory is not deleted.  
+
+```{r check_again, eval = FALSE}
+check(".", vignettes = FALSE)
+```
+ 
