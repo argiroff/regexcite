@@ -2,5 +2,6 @@
 ^\.Rproj\.user$
 ^notes.Rmd$
 ^LICENSE\.md$
-^inst/doc/.+$
 ^README\.Rmd$
+^notes\.Rmd$
+^notes\.html$

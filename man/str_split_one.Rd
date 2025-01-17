@@ -40,6 +40,6 @@ Split a string
 }
 \examples{
 x <- "alpha,bravo,charlie,delta"
-str_split_one(string, pattern = ",")
-str_split_one(string, pattern = ",", n = 2)
+str_split_one(x, pattern = ",")
+str_split_one(x, pattern = ",", n = 2)
 }

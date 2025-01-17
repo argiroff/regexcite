@@ -203,4 +203,4 @@ use_readme_rmd()
 build_readme()
 ```
 
-
+Run final `check()` and `install()`. Install could be done locally, from GitHub (`install_github("argiroff/regexcite")`), or clone the repository and then run `install()`.  
