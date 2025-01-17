@@ -160,3 +160,40 @@ Update the function name using `devtools`.
 rename_files("strsplit1", "str_split_one")
 ```
 
+And update the parameters in the `roxygen2` comment in the function file, and the test file. Run document to add it to exports in `NAMESPACE`.  
+
+```{r document_again, eval = FALSE}
+document()
+```
+
+Then load again.  
+
+```{r load_again, eval = FALSE}
+load_all()
+
+```
+
+Add another test to test file to stop if input length is > 1.  
+
+```{r test_length, eval = FALSE}
+testthat("str_split_one() errors if input length > 1", {
+  expect_error(str_split_one(c("a,b", "c,d"), pattern = ","))
+})
+```
+
+And another test to test file to check that it exposes features of `stringr::str_split()`.  
+
+```{r test_features, eval = FALSE}
+testthat("str_split_one() exposes features of stringr::str_split()", {
+  expect_equal(str_split_one("a,b,c", pattern = ",", n = 2), c("a", "b,c"))
+  expect_equal(str_split_one("a.b", pattern = stringr::fixed(".")), c("a", "b"))
+})
+```
+
+If hadn't already committed to new GitHub repo, then:  
+
+```{r github, eval = FALSE}
+use_github()
+```
+
+
