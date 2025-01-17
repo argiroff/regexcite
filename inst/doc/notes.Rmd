@@ -102,3 +102,32 @@ install()
 library(regexcite)
 ```
 
+Automate testing of functions with `testthat`. Automating tests allows you to catch issues that arise when changes in one part of the package break other parts. First, initialize with `testthat`.  
+
+```{r initialize_testing, eval = FALSE}
+use_testthat()
+```
+
+This creates a `test/` directory that contains a standard `testthat.R` script (don't touch this) and a `man/` directory with documentation for each function. There is also a `tests/testthat/` directory, which will contain R scripts for tests.  
+
+To start, initiate a test of the function.  
+
+```{r start_strsplit1_test, eval = FALSE}
+use_test("strsplit1")
+```
+
+This creates `tests/testthat/test-strsplit1.R`. Go this script and then go to Build > Test. It then runs the test. Can also run the following:  
+
+```{r test, eval = FALSE}
+test()
+```
+
+It says everything is good, but that's because it was a default test. We need to write our own for the function.    
+
+```{updated_test, eval = FALSE}
+test_that("strsplit1() splits a string", {
+  expect_equal(strsplit1("a,b,c", split = ","), c("a", "b", "c"))
+})
+```
+
+
