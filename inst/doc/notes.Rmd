@@ -108,7 +108,7 @@ Automate testing of functions with `testthat`. Automating tests allows you to ca
 use_testthat()
 ```
 
-This creates a `test/` directory that contains a standard `testthat.R` script (don't touch this) and a `man/` directory with documentation for each function. There is also a `tests/testthat/` directory, which will contain R scripts for tests.  
+This creates a `test/` directory that contains a standard `testthat.R` script (don't touch this) and a `man/` directory with documentation for each function. There is also a `tests/testthat/` directory, which will contain R scripts for tests. It updates `DESCRIPTION` with some suggests about `testthat`.  
 
 To start, initiate a test of the function.  
 
@@ -130,4 +130,33 @@ test_that("strsplit1() splits a string", {
 })
 ```
 
+Now can re-factor the function to use a `str_split()` function from another package (`stringr`).  
+
+```{r use_stringr, eval = FALSE}
+use_package("stringr")
+```
+
+This adds `stringr` to the imports field in `DESCRIPTION`, and specifies that we need to use `stringr::fun()` to call functions from the package.  
+
+Now update the function code.  
+
+```{r update_function, eval = FALSE}
+str_split_one <- function(string, pattern, n = Inf) {
+  
+  stopifnot(is.character(string), length(string) <= 1)
+  
+  if(length(string) == 1) {
+    stringr::str_split(string = string, pattern = pattern, n = n)[[1]]
+  } else{
+    character()
+  }
+  
+}
+```
+
+Update the function name using `devtools`.  
+
+```{r rename_files, eval = FALSE}
+rename_files("strsplit1", "str_split_one")
+```
 
