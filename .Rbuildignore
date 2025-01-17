@@ -3,3 +3,4 @@
 ^notes.Rmd$
 ^LICENSE\.md$
 ^inst/doc/.+$
+^README\.Rmd$

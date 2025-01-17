@@ -196,4 +196,11 @@ If hadn't already committed to new GitHub repo, then:
 use_github()
 ```
 
+Add README, copy in text from the [link](https://github.com/jennybc/regexcite/blob/main/README.Rmd) from the R Packages book, and build the README.  
+
+```{r readme, eval = FALSE}
+use_readme_rmd()
+build_readme()
+```
+
 
